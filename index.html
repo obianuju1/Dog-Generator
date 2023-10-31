@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+.container{
+   width:500px;
+   height:600px;
+   background-color:orange;
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+   border-radius: 15%;
+ 
+}
+h1{
+   padding-top: 15%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    color:dodgerblue;
+    font-family:monospace;
+   
+    
+}
+#button{
+    display: block;
+    padding: 20px 40px 5px 50px;
+    font-size: 24px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    width:200px;
+    height:50px;
+    border-radius: 5px;
+    background-color: lightcoral;
+    font-family:monospace;
+    font-weight:bold;
+    color:mistyrose;
+    border-color: white;
+    border-style:solid;
+    text-align: center;
+
+}
+img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width:250px;
+    height:200px;
+    padding-top: 20px;
+    text-align: center;
+  
+}
+body{
+    background-color: olive;
+}
+
+#button:hover {
+    background-color: #e652a3}
+
+#button:active {
+  background-color: dodgerblue;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+</style>
+<body>
+    <div class="container">
+    <h1>Dog Generator</h1>
+    <img id="imgDog" style="height:200px">
+    <buttton id="button" type="button"> Click Me</buttton>
+</div>
+
+    <script>
+        const button = document.querySelector("#button");
+        button.addEventListener("click", function(){
+            fetch("https://dog.ceo/api/breeds/image/random")
+            .then(response => response.json())
+            .then(data => imgDog.src = data.message);
+        })
+       
+    </script>
+    
+</body>
+</html>
